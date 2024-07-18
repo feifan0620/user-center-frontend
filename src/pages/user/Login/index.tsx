@@ -4,7 +4,7 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { LoginForm, ProFormCheckbox, ProFormText } from '@ant-design/pro-components';
 import { Alert, message, Tabs } from 'antd';
 import React, { useState } from 'react';
-import { history, useModel } from 'umi';
+import { history, Link, useModel } from 'umi';
 import styles from './index.less';
 import { SYSTEM_LOGO } from '@/constants';
 
@@ -65,9 +65,10 @@ const Login: React.FC = () => {
       <div className={styles.content}>
         <LoginForm
           logo={<img alt="logo" src={SYSTEM_LOGO} />}
-          title="用户中心"
-          subTitle={'业内领先的一站式用户管理系统'}
-          actions={<a href="/user/register">注册账号</a>}
+          title="NEXUS用户中心"
+          subTitle={'一站式用户信息管理平台，让用户管理更高效'}
+          // @ts-ignore
+          actions={<Link to="/user/register">注册账号</Link>}
           initialValues={{
             autoLogin: true,
           }}
@@ -87,7 +88,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   prefix: <UserOutlined className={styles.prefixIcon} />,
                 }}
-                placeholder={'请输入账号'}
+                placeholder={'账号：admin or feifan'}
                 rules={[
                   {
                     required: true,
@@ -101,7 +102,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   prefix: <LockOutlined className={styles.prefixIcon} />,
                 }}
-                placeholder={'请输入密码'}
+                placeholder={'密码：12345678'}
                 rules={[
                   {
                     required: true,

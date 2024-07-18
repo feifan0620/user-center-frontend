@@ -161,6 +161,8 @@ export default () => {
           </StatisticCard.Group>
         </ProCard>
       </RcResizeObserver>
+      <br />
+      <h1>更多功能开发中，敬请期待！</h1>
     </PageContainer>
   );
 };

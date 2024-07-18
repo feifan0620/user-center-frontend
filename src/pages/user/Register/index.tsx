@@ -4,7 +4,7 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { LoginForm, ProFormText } from '@ant-design/pro-components';
 import { message, Tabs } from 'antd';
 import React, { useState } from 'react';
-import { history } from 'umi';
+import { history, Link } from 'umi';
 import styles from './index.less';
 import { SYSTEM_LOGO } from '@/constants';
 
@@ -48,8 +48,9 @@ const Register: React.FC = () => {
       <div className={styles.content}>
         <LoginForm
           logo={<img alt="logo" src={SYSTEM_LOGO} />}
-          title="用户中心"
-          subTitle={'业内领先的一站式用户管理系统'}
+          title="NEXUS用户中心"
+          subTitle={'一站式用户信息管理平台，让用户管理更高效'}
+          actions={<Link to="/user/login">返回登录页</Link>}
           submitter={{
             searchConfig: {
               submitText: '注册',

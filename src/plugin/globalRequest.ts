@@ -4,15 +4,14 @@
  */
 import { extend } from 'umi-request';
 import { message } from 'antd';
-import { history } from '@@/core/history';
-import { stringify } from 'querystring';
 
 /**
  * 配置request请求时的默认参数
  */
 const request = extend({
   credentials: 'include', // 默认请求是否带上cookie
-  prefix: process.env.NODE_ENV === 'production' ? 'http://114.132.155.68:8888' : undefined,
+
+  prefix: process.env.NODE_ENV === 'production' ? 'http://user-backend.feifan.ltd' : undefined,
   // requestType: 'form',
 });
 
@@ -41,12 +40,12 @@ request.interceptors.response.use(async (response, options): Promise<any> => {
   }
   if (res.code === 40100 && location.pathname !== '/') {
     message.error('请先登录');
-    history.replace({
-      pathname: '/user/login',
-      search: stringify({
-        redirect: location.pathname,
-      }),
-    });
+    // history.replace({
+    //   pathname: '/user/login',
+    //   search: stringify({
+    //     redirect: location.pathname,
+    //   }),
+    // });
   } else {
     throw new Error(res.description);
   }
